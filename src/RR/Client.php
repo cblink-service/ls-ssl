@@ -63,4 +63,42 @@ class Client extends AbstractApi
     {
         return $this->post(sprintf('api/rr/%s/deploy', $id));
     }
+
+    /**
+     * 关联的授权
+     *
+     * @param $id
+     * @return \Cblink\Service\Kennel\HttpResponse
+     */
+    public function auth($id)
+    {
+        return $this->get(sprintf('api/rr/%s/auth', $id));
+    }
+
+    /**
+     * 关联的部署
+     *
+     * @param $id
+     * @return \Cblink\Service\Kennel\HttpResponse
+     */
+    public function servers($id)
+    {
+        return $this->get(sprintf('api/rr/%s/server', $id));
+    }
+
+    /**
+     * le订单
+     *
+     * @param $id
+     * @param int $page
+     * @param int $pageSize
+     * @return \Cblink\Service\Kennel\HttpResponse
+     */
+    public function orders($id, $page = 1, $pageSize = 15)
+    {
+        return $this->get(sprintf('api/rr/%s/deploy', $id), [
+            'page' => $page,
+            'page_size' => $pageSize,
+        ]);
+    }
 }

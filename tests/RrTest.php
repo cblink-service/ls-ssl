@@ -43,4 +43,28 @@ class RrTest extends TestCase
 
         $this->assertTrue($response->success(), $response->errMsg());
     }
+
+    // 获取域名关联的认证信息
+    public function testGetAuth()
+    {
+        $response = $this->app->rr->auth(30);
+
+        $this->assertTrue($response->success(), $response->errMsg());
+    }
+
+    // 获取记录关联的部署
+    public function testGetServer()
+    {
+        $response = $this->app->rr->servers(30);
+
+        $this->assertTrue($response->success(), $response->errMsg());
+    }
+
+    // 查看域名下的申请订单列表
+    public function testOrders()
+    {
+        $response = $this->app->rr->orders(29);
+
+        $this->assertTrue($response->success(), $response->errMsg());
+    }
 }

@@ -46,4 +46,36 @@ class ServerTest extends TestCase
         $this->assertTrue($response->success(), $response->errMsg());
     }
 
+    // 获取部署列表
+    public function testLists()
+    {
+        $response = $this->app->server->lists();
+
+        $this->assertTrue($response->success(), $response->errMsg());
+    }
+
+    // 获取授权列表
+    public function testAuth()
+    {
+        $response = $this->app->server->auth();
+
+        $this->assertTrue($response->success(), $response->errMsg());
+    }
+
+    // 复制部署
+    public function testCopy()
+    {
+        $response = $this->app->server->copy(32);
+
+        $this->assertTrue($response->success(), $response->errMsg());
+    }
+
+    // 删除部署
+    public function testDestroy()
+    {
+        $response = $this->app->server->destroy(32);
+
+        $this->assertTrue($response->success(), $response->errMsg());
+    }
+
 }
