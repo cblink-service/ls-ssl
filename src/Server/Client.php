@@ -105,6 +105,17 @@ class Client extends AbstractApi
     }
 
     /**
+     * 获取详情
+     *
+     * @param $id
+     * @return \Cblink\Service\Kennel\HttpResponse
+     */
+    public function show($id)
+    {
+        return $this->get(sprintf('api/server/%s', $id));
+    }
+
+    /**
      * 删除记录
      *
      * @param $id
