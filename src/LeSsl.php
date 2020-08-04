@@ -10,6 +10,7 @@ use Cblink\Service\Kennel\ServiceContainer;
  * @property-read Server\Client $server     服务器配置
  * @property-read Auth\Client $auth         认证配置
  * @property-read RR\Client $rr             记录管理
+ * @property-read Deploy\Client $deploy     部署记录
  */
 class LeSsl extends ServiceContainer
 {
@@ -24,6 +25,7 @@ class LeSsl extends ServiceContainer
             Auth\ServiceProvider::class,
             RR\ServiceProvider::class,
             Server\ServiceProvider::class,
+            Deploy\ServiceProvider::class,
         ];
     }
 }

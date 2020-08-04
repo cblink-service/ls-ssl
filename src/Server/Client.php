@@ -93,6 +93,18 @@ class Client extends AbstractApi
     }
 
     /**
+     * 修改配置项
+     *
+     * @param $id
+     * @param $payload
+     * @return \Cblink\Service\Kennel\HttpResponse
+     */
+    public function update($id, $payload)
+    {
+        return $this->put(sprintf('api/server/%s', $id), $payload);
+    }
+
+    /**
      * 删除记录
      *
      * @param $id

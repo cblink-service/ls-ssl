@@ -70,6 +70,17 @@ class ServerTest extends TestCase
         $this->assertTrue($response->success(), $response->errMsg());
     }
 
+    // 修改配置
+    public function testUpdate()
+    {
+        $response = $this->app->server->update(32, [
+            'access_id' => 'xxxxxxxx',
+            'access_key' => 'xxxxxxxxxx'
+        ]);
+
+        $this->assertTrue($response->success(), $response->errMsg());
+    }
+
     // 删除部署
     public function testDestroy()
     {
