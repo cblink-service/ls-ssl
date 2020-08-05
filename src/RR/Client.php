@@ -96,7 +96,7 @@ class Client extends AbstractApi
      */
     public function orders($id, $page = 1, $pageSize = 15)
     {
-        return $this->get(sprintf('api/rr/%s/deploy', $id), [
+        return $this->get(sprintf('api/rr/%s/apply', $id), [
             'page' => $page,
             'page_size' => $pageSize,
         ]);
