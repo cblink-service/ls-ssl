@@ -14,12 +14,18 @@ class Client extends AbstractApi
      * @param int $pageSize
      * @return \Cblink\Service\Kennel\HttpResponse
      */
-    public function auth($page = 1, $pageSize = 15)
+    public function lists($page = 1, $pageSize = 15)
     {
         return $this->get('api/server', [
             'page' => $page,
             'page_size' => $pageSize,
-            'platform' => [LeConst::PLATFORM_ALIYUN, LeConst::PLATFORM_SERVER_HOST]
+            'platform' => [
+                LeConst::PLATFORM_ALIYUN_CDN,
+                LeConst::PLATFORM_ALIYUN_DCDN,
+                LeConst::PLATFORM_SERVER,
+                LeConst::PLATFORM_QINIU,
+                LeConst::PLATFORM_K8S
+            ]
         ]);
     }
 
@@ -30,17 +36,29 @@ class Client extends AbstractApi
      * @param int $pageSize
      * @return \Cblink\Service\Kennel\HttpResponse
      */
-    public function lists($page = 1, $pageSize = 15)
+    public function auth($page = 1, $pageSize = 15)
     {
         return $this->get('api/server', [
             'page' => $page,
             'page_size' => $pageSize,
-            'platform' => [
-                LeConst::PLATFORM_ALIYUN_CDN,
-                LeConst::PLATFORM_SERVER,
-                LeConst::PLATFORM_QINIU,
-                LeConst::PLATFORM_K8S
-            ]
+            'platform' => [LeConst::PLATFORM_ALIYUN, LeConst::PLATFORM_SERVER_HOST]
+        ]);
+    }
+
+    /**
+     * 保存
+     *
+     * @param $platform
+     * @param $name
+     * @param $config
+     * @return \Cblink\Service\Kennel\HttpResponse
+     */
+    public function store($platform, $name, $config)
+    {
+        return $this->post('api/server', [
+            'platform' => $platform,
+            'name' => $name,
+            'config' => $config
         ]);
     }
 
@@ -51,11 +69,7 @@ class Client extends AbstractApi
      */
     public function server($name, $config)
     {
-        return $this->post('api/server', [
-            'platform' => LeConst::PLATFORM_SERVER,
-            'name' => $name,
-            'config' => $config
-        ]);
+        return $this->store(LeConst::PLATFORM_SERVER, $name, $config);
     }
 
     /**
@@ -65,11 +79,17 @@ class Client extends AbstractApi
      */
     public function aliyun($name, $config)
     {
-        return $this->post('api/server', [
-            'platform' => LeConst::PLATFORM_ALIYUN_CDN,
-            'name' => $name,
-            'config' => $config
-        ]);
+        return $this->store(LeConst::PLATFORM_ALIYUN_CDN, $name, $config);
+    }
+
+    /**
+     * @param $name
+     * @param $config
+     * @return \Cblink\Service\Kennel\HttpResponse
+     */
+    public function aliyunDcdn($name, $config)
+    {
+        return $this->store(LeConst::PLATFORM_ALIYUN_DCDN, $name, $config);
     }
 
     /**
@@ -79,11 +99,7 @@ class Client extends AbstractApi
      */
     public function qiniu($name, $config)
     {
-        return $this->post('api/server', [
-            'platform' => LeConst::PLATFORM_QINIU,
-            'name' => $name,
-            'config' => $config
-        ]);
+        return $this->store(LeConst::PLATFORM_QINIU, $name, $config);
     }
 
     /**
@@ -93,11 +109,7 @@ class Client extends AbstractApi
      */
     public function k8s($name, $config)
     {
-        return $this->post('api/server', [
-            'platform' => LeConst::PLATFORM_K8S,
-            'name' => $name,
-            'config' => $config
-        ]);
+        return $this->store(LeConst::PLATFORM_K8S, $name, $config);
     }
 
     /**
