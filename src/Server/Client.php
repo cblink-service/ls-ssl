@@ -35,7 +35,12 @@ class Client extends AbstractApi
         return $this->get('api/server', [
             'page' => $page,
             'page_size' => $pageSize,
-            'platform' => [LeConst::PLATFORM_SERVER, LeConst::PLATFORM_QINIU, LeConst::PLATFORM_K8S]
+            'platform' => [
+                LeConst::PLATFORM_ALIYUN_CDN,
+                LeConst::PLATFORM_SERVER,
+                LeConst::PLATFORM_QINIU,
+                LeConst::PLATFORM_K8S
+            ]
         ]);
     }
 
