@@ -58,6 +58,20 @@ class Client extends AbstractApi
      * @param $config
      * @return \Cblink\Service\Kennel\HttpResponse
      */
+    public function aliyun($name, $config)
+    {
+        return $this->post('api/server', [
+            'platform' => LeConst::PLATFORM_ALIYUN_CDN,
+            'name' => $name,
+            'config' => $config
+        ]);
+    }
+
+    /**
+     * @param $name
+     * @param $config
+     * @return \Cblink\Service\Kennel\HttpResponse
+     */
     public function qiniu($name, $config)
     {
         return $this->post('api/server', [

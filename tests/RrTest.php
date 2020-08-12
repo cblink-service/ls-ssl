@@ -39,7 +39,7 @@ class RrTest extends TestCase
     // 手动触发部署，自动任务也许会失败
     public function testDeploy()
     {
-        $response = $this->app->rr->deploy(30);
+        $response = $this->app->rr->deploy(1);
 
         $this->assertTrue($response->success(), $response->errMsg());
     }

@@ -32,6 +32,18 @@ class ServerTest extends TestCase
         $this->assertTrue($response->success(), $response->errMsg());
     }
 
+    // 阿里云cdn
+    public function testAliyun()
+    {
+        $response = $this->app->server->qiniu('阿里云cdn', [
+            'access_id' => 'xxxxxxxxxx',
+            'access_key' => 'xxxxxxxxxxxxxxxxxx',
+            'domain' => 'test.test.cblink.net',
+        ]);
+
+        $this->assertTrue($response->success(), $response->errMsg());
+    }
+
     // 服务器部署
     public function testQiniu()
     {
