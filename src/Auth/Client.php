@@ -7,6 +7,14 @@ use Cblink\Service\Le\LeConst;
 
 class Client extends AbstractApi
 {
+    public function store($platform, $name, $config)
+    {
+        return $this->post('api/server', [
+            'platform' => $platform,
+            'name' => $name,
+            'config' => $config
+        ]);
+    }
     /**
      * 阿里云配置信息
      *
@@ -16,11 +24,7 @@ class Client extends AbstractApi
      */
     public function aliyun($name, $config)
     {
-        return $this->post('api/server', [
-            'platform' => LeConst::PLATFORM_ALIYUN,
-            'name' => $name,
-            'config' => $config
-        ]);
+        return $this->store(LeConst::PLATFORM_ALIYUN, $name, $config);
     }
 
     /**
@@ -32,10 +36,6 @@ class Client extends AbstractApi
      */
     public function server($name, $config)
     {
-        return $this->post('api/server', [
-            'platform' => LeConst::PLATFORM_SERVER_HOST,
-            'name' => $name,
-            'config' => $config
-        ]);
+        return $this->store(LeConst::PLATFORM_SERVER_HOST, $name, $config);
     }
 }

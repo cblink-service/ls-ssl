@@ -63,56 +63,6 @@ class Client extends AbstractApi
     }
 
     /**
-     * @param $name
-     * @param $config
-     * @return \Cblink\Service\Kennel\HttpResponse
-     */
-    public function server($name, $config)
-    {
-        return $this->store(LeConst::PLATFORM_SERVER, $name, $config);
-    }
-
-    /**
-     * @param $name
-     * @param $config
-     * @return \Cblink\Service\Kennel\HttpResponse
-     */
-    public function aliyun($name, $config)
-    {
-        return $this->store(LeConst::PLATFORM_ALIYUN_CDN, $name, $config);
-    }
-
-    /**
-     * @param $name
-     * @param $config
-     * @return \Cblink\Service\Kennel\HttpResponse
-     */
-    public function aliyunDcdn($name, $config)
-    {
-        return $this->store(LeConst::PLATFORM_ALIYUN_DCDN, $name, $config);
-    }
-
-    /**
-     * @param $name
-     * @param $config
-     * @return \Cblink\Service\Kennel\HttpResponse
-     */
-    public function qiniu($name, $config)
-    {
-        return $this->store(LeConst::PLATFORM_QINIU, $name, $config);
-    }
-
-    /**
-     * @param $name
-     * @param $config
-     * @return \Cblink\Service\Kennel\HttpResponse
-     */
-    public function k8s($name, $config)
-    {
-        return $this->store(LeConst::PLATFORM_K8S, $name, $config);
-    }
-
-    /**
      * 复制记录
      *
      * @param $id
