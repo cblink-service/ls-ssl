@@ -87,6 +87,15 @@ class Client extends AbstractApi
     }
 
     /**
+     * @param $id
+     * @return \Cblink\Service\Kennel\HttpResponse
+     */
+    public function retry($id)
+    {
+        return $this->get(sprintf('api/rr/%s/retry', $id));
+    }
+
+    /**
      * 关联的部署
      *
      * @param $id
