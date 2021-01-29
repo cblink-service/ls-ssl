@@ -24,6 +24,15 @@ class Client extends AbstractApi
      * @param $id
      * @return \Cblink\Service\Kennel\HttpResponse
      */
+    public function show($id)
+    {
+        return $this->get(sprintf('api/failed-queue/%s', $id));
+    }
+
+    /**
+     * @param $id
+     * @return \Cblink\Service\Kennel\HttpResponse
+     */
     public function retry($id)
     {
         return $this->post(sprintf('api/failed-queue/%s/retry', $id));
