@@ -92,7 +92,7 @@ class Client extends AbstractApi
      */
     public function retry($id)
     {
-        return $this->get(sprintf('api/rr/%s/retry', $id));
+        return $this->post(sprintf('api/rr/%s/retry', $id));
     }
 
     /**
