@@ -14,7 +14,7 @@ class Client extends AbstractApi
      */
     public function lists($page = 1, $pageSize = 15)
     {
-        return $this->post('api/failed-queue', [
+        return $this->get('api/failed-queue', [
             'page' => $page,
             'page_size' => $pageSize
         ]);
@@ -29,6 +29,10 @@ class Client extends AbstractApi
         return $this->post(sprintf('api/failed-queue/%s/retry', $id));
     }
 
+    /**
+     * @param $id
+     * @return \Cblink\Service\Kennel\HttpResponse
+     */
     public function destroy($id)
     {
         return $this->delete(sprintf('api/failed-queue/%s', $id));
