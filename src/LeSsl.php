@@ -27,6 +27,7 @@ class LeSsl extends ServiceContainer
             RR\ServiceProvider::class,
             Server\ServiceProvider::class,
             Deploy\ServiceProvider::class,
+            Job\ServiceProvider::class,
         ];
     }
 }
