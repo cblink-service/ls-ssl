@@ -26,6 +26,7 @@ class Client extends AbstractApi
                 LeConst::PLATFORM_QINIU,
                 LeConst::PLATFORM_K8S,
                 LeConst::PLATFORM_ALIYUN_FC,
+                LeConst::PLATFORM_ALIYUN_LIVE,
             ]
         ]);
     }
